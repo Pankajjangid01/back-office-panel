@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Users from "./components/Users";
 import TaskLists from "./components/TaskLists";
@@ -8,10 +13,11 @@ import Login from "./components/Login";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const navigate = useNavigate();
   const handleLogin = (username, password) => {
     if (username === "admin" && password === "password") {
       setIsLoggedIn(true);
+      navigate("/users");
     } else {
       alert("Invalid credentials!");
     }
