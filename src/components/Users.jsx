@@ -16,7 +16,9 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:4000/users");
+        const response = await fetch(
+          "https://back-office-panel-x5up.onrender.com/users"
+        );
         const data = await response.json();
         setRows(data);
       } catch (error) {
