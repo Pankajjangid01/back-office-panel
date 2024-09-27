@@ -15,16 +15,15 @@ try {
     token_uri: process.env.FIREBASE_TOKEN_URI,
     auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_CERT_URL,
     client_x509_cert_url: process.env.FIREBASE_CLIENT_CERT_URL,
-    universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN,
   };
 
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://todo-list-ac0bc-default-rtdb.firebaseio.com",
+    databaseURL: "https://your-database-url.firebaseio.com",
   });
 } catch (error) {
   console.error("Error initializing Firebase Admin SDK:", error);
-  process.exit(1);
+  process.exit(1); // Exits on failure
 }
 
 const app = express();
