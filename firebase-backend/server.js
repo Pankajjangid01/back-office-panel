@@ -28,9 +28,14 @@ try {
 }
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
-const db = admin.firestore(); 
+const db = admin.firestore();
 
 // Fetch all users
 app.get("/users", async (req, res) => {
