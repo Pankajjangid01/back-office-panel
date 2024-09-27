@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Typography } from "@mui/material";
-import axios from "axios"; // Make sure to install axios
+import axios from "axios";
 
 const columns = [
   { field: "taskListTitle", headerName: "Task List Title", width: 200 },
   { field: "createdBy", headerName: "Created By (Email ID)", width: 200 },
-  { field: "noOfTasks", headerName: "No. of Tasks", type: "number", width: 150 },
+  {
+    field: "noOfTasks",
+    headerName: "No. of Tasks",
+    type: "number",
+    width: 150,
+  },
   { field: "creationTime", headerName: "Creation Time", width: 150 },
   { field: "lastUpdated", headerName: "Last Updated", width: 150 },
 ];
@@ -19,7 +24,9 @@ const TaskLists = () => {
     const fetchTaskLists = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("https://back-office-panel-seven.vercel.app/tasklists");
+        const response = await axios.get(
+          "https://back-office-panel-seven.vercel.app/tasklists"
+        );
         const formattedData = [];
 
         response.data.forEach((user) => {
@@ -89,7 +96,7 @@ const TaskLists = () => {
           rows={rows}
           columns={columns}
           pageSize={5}
-          loading={loading} // Use loading prop here
+          loading={loading} 
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",

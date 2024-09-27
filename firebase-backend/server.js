@@ -30,7 +30,7 @@ try {
 const app = express();
 app.use(cors());
 
-const db = admin.firestore(); // Firestore database reference
+const db = admin.firestore(); 
 
 // Fetch all users
 app.get("/users", async (req, res) => {

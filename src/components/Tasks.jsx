@@ -19,7 +19,7 @@ const Tasks = () => {
     const fetchTasks = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("https://back-office-panel-seven.vercel.app/tasklists");
+        const response = await axios.get("http://localhost:5000/tasklists");
         const taskData = [];
 
         response.data.forEach((user) => {
@@ -87,7 +87,7 @@ const Tasks = () => {
           rows={rows}
           columns={columns}
           pageSize={5}
-          loading={loading} // Use loading prop here
+          loading={loading} 
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
