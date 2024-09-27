@@ -19,7 +19,7 @@ const Tasks = () => {
     const fetchTasks = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/tasklists");
+        const response = await axios.get("https://back-office-panel-seven.vercel.app/tasklists");
         const taskData = [];
 
         response.data.forEach((user) => {

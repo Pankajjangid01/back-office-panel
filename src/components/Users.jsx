@@ -16,7 +16,9 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/users");
+        const response = await fetch(
+          "https://back-office-panel-seven.vercel.app/users"
+        );
         const data = await response.json();
         setRows(data);
       } catch (error) {
@@ -53,7 +55,8 @@ const Users = () => {
         Users
       </Typography>
       <Box
-        sx={{  overflowX:"auto",
+        sx={{
+          overflowX: "auto",
           height: 400,
           backgroundColor: "#E9EFEC",
           borderRadius: "10px",
@@ -71,7 +74,7 @@ const Users = () => {
               border: "none",
             },
             "& .MuiDataGrid-cell": {
-              color: "#374151"
+              color: "#374151",
             },
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "#e2e8f0",
